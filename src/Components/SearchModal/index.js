@@ -43,7 +43,7 @@ export default function SearchModel() {
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <Button color="danger" variant="dark" onPress={onClose}>
                   Đóng
                 </Button>
                 <Button color="primary" onPress={onClose}>
