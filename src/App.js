@@ -2,6 +2,8 @@ import "./App.css";
 import AppRouter from "./Components/AppRouter";
 import DocLeft from "./Asset/left-gradient.png";
 import DocRight from "./Asset/right-gradient.png";
+import { Toaster } from "react-hot-toast";
+import { ListRepotrContextProvider } from "./Context/ListRepotrContext";
 
 function App() {
   return (
@@ -19,7 +21,12 @@ function App() {
         />
       </div>
       <div className="w-full h-full overflow-hidden absolute z-[1]">
-        <AppRouter />
+        <ListRepotrContextProvider>
+          <AppRouter />
+        </ListRepotrContextProvider>
+      </div>
+      <div className="w-fit h-full overflow-hidden absolute z-[100]">
+        <Toaster position="bottom-right" />
       </div>
     </main>
   );
