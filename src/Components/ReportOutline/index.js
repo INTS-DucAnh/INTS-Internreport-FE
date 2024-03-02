@@ -1,6 +1,6 @@
 import { Divider } from "@nextui-org/react";
 
-export default function ReportOutline({ isOpen, data, forwardRef, ...props }) {
+export default function ReportOutline({ isOpen, data, ...props }) {
   if (!isOpen) return null;
 
   const TagName = ({ element, ...props }) => {
@@ -16,7 +16,6 @@ export default function ReportOutline({ isOpen, data, forwardRef, ...props }) {
   };
   return (
     <div
-      ref={forwardRef}
       {...props}
       className="w-full m-5 2xl:w-fit 2xl:max-w-[35%]: mdxl:max-w-[60%] 2xl:bg-white 2xl:bg-opacity-5 2xl:rounded-xl 2xl:border-1 2xl:backdrop-blur-sm 2xl:border-stone-600 2xl:absolute 2xl:left-0 2xl:right-0 2xl:box-border p-5"
     >

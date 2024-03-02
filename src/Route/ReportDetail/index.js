@@ -12,7 +12,6 @@ import ReportOutline from "../../Components/ReportOutline";
 export default function ReportDetail() {
   const navigate = useNavigate();
   const { rid } = useParams();
-  const outlineRef = useRef(null);
   const [report, SetReport] = useState({});
   const [loading, SetLoading] = useState(true);
   const [openOutline, SetOpenOutline] = useState(true);
@@ -50,19 +49,6 @@ export default function ReportDetail() {
     getReportId(rid);
   }, [rid]);
 
-  useEffect(() => {
-    const outlineClickOutsite = window.addEventListener(
-      "click",
-      (e) => {
-        if (outlineRef.current && !outlineRef.current.contains(e.target)) {
-          SetOpenOutline(false);
-        }
-      },
-      { capture: true }
-    );
-    return () => window.removeEventListener("click", outlineClickOutsite);
-  }, []);
-
   return (
     <div className="h-full w-full overflow-auto block relative py-5 2xl:py-32">
       <div className="fixed box-border z-10 xl:mx-auto top-0 left-0 xl mb-5 w-1/5 2xl:w-full">
@@ -99,17 +85,16 @@ export default function ReportDetail() {
               color="secondary"
               variant="faded"
               size="md"
-              onClick={() => SetOpenOutline((o) => !o)}
+              id="close-outline"
+              onClick={() => {
+                SetOpenOutline((outline) => !outline);
+              }}
             >
               <UilListUl />
             </Button>
           </Tooltip>
         </div>
-        <ReportOutline
-          forwardRef={outlineRef}
-          isOpen={openOutline}
-          data={headingList}
-        />
+        <ReportOutline isOpen={openOutline} data={headingList} />
       </div>
       {loading ? (
         <ReportDetailLoading />
