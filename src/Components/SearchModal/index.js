@@ -109,7 +109,7 @@ export default function SearchModel() {
         backdrop="blur"
         className="dark text-white"
       >
-        <ModalContent className="min-w-[40%] md:min-w-[90%]">
+        <ModalContent className="min-w-[750px] xl:min-w-[60%] 2xl:min-w-[50%] md:min-w-[90%]">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-xl">

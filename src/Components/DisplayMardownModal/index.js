@@ -45,7 +45,7 @@ export default function DisplayMardownModal() {
         placement="top-center"
         className="dark text-white"
       >
-        <ModalContent className="min-w-[60%] xl:min-w-[90%] h-fit over">
+        <ModalContent className="min-w-[50%] xl:min-w-[80%] h-fit over">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-xl">
@@ -53,7 +53,7 @@ export default function DisplayMardownModal() {
               </ModalHeader>
               <Divider orientation="horizontal" />
               <ModalBody>
-                <div className="max-h-[700px] overflow-auto">
+                <div className="max-h-[600px] overflow-auto">
                   <DisplayMarkdown md={data.report} theme="light" />
                 </div>
               </ModalBody>

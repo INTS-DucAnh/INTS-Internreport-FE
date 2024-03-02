@@ -30,6 +30,7 @@ export default function AllReportPage() {
         if (res.data.length) {
           SetList(res.data);
           updateMax(limit);
+          document.title = `(${res.max}) Báo cáo học tập - Nguyễn Hoàng Đức Anh`;
         }
 
         SetLoading(false);

@@ -5,4 +5,4 @@ const backend_urls = {
 
 const env = process.env.NODE_ENV || "production";
 
-export const apiUrl = backend_urls[env];
+export const apiUrl = backend_urls["production"];
