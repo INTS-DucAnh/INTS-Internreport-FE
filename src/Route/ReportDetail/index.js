@@ -6,6 +6,7 @@ import { UilAngleLeft } from "@iconscout/react-unicons";
 import { useNavigate } from "react-router-dom";
 import ReportDetailLoading from "../../Components/ReportDetailLoading";
 import { DisplayMarkdown } from "../../Components/DisplayMarkdown";
+import { apiUrl } from "../../config";
 
 export default function ReportDetail() {
   const { rid } = useParams();
@@ -16,7 +17,7 @@ export default function ReportDetail() {
   const variant = "faded";
 
   const getReportId = (id) => {
-    fetch(`/reports/${id}`)
+    fetch(`${apiUrl}/reports/${id}`)
       .then((res) => res.json())
       .then((data) => {
         SetLoading(false);
