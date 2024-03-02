@@ -6,6 +6,7 @@ export default function ReportOutline({ isOpen, data }) {
     return (
       <a href={`#${element.id}`}>
         <Tag
+          className="scroll-mt-32"
           style={{
             marginLeft: `${parseInt(element.tagName.slice(-1) - 1) * 10}px`,
           }}
