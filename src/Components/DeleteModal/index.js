@@ -15,6 +15,7 @@ import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import DeleteForm from "../DeleteForm";
 import { ListReportContext } from "../../Context/ListRepotrContext";
+import { apiUrl } from "../../config";
 
 export default function DeleteModal({ _id }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -24,7 +25,7 @@ export default function DeleteModal({ _id }) {
 
   const onDelete = (onClose) => {
     SetLoading(true);
-    fetch(`/reports/delete?id=${_id}&secretKey=${secretKey}`, {
+    fetch(`${apiUrl}/reports/delete?id=${_id}&secretKey=${secretKey}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

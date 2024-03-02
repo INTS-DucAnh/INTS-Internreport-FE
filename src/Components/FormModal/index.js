@@ -17,6 +17,7 @@ import { toast } from "react-hot-toast";
 import { FormContext } from "../../Context/FormContext";
 import { ListReportContext } from "../../Context/ListRepotrContext";
 import DisplayMardownModal from "../DisplayMardownModal";
+import { apiUrl } from "../../config";
 
 export default function FormModal({ type, form = {} }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -56,7 +57,7 @@ export default function FormModal({ type, form = {} }) {
 
   const onSubmit = (onClose) => {
     SetLoading(true);
-    fetch(fetchOptions[type].url, {
+    fetch(`${apiUrl}${fetchOptions[type].url}`, {
       method: fetchOptions[type].method,
       headers: {
         Accept: "application/json",

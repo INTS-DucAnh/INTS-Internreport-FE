@@ -13,6 +13,7 @@ import {
 import { SearchIcon } from "../../Asset/searchIcon";
 import DropdownMutiple from "../Dropdown";
 import ReportCard from "../ReportCard";
+import { apiUrl } from "../../config";
 
 export default function SearchModel() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -64,7 +65,7 @@ export default function SearchModel() {
       return prev;
     }, []);
     fetch(
-      `/reports/find?limit=${limit}&skip=${(current - 1) * limit}${
+      `${apiUrl}/reports/find?limit=${limit}&skip=${(current - 1) * limit}${
         body.length ? "&" : ""
       }${body.join("&")}`,
       {
