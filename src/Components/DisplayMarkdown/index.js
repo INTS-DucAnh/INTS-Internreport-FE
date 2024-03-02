@@ -25,7 +25,7 @@ export function DisplayMarkdown({
     }
     const Element = createElement(
       props.node.tagName,
-      { id: slug },
+      { id: slug, className: "2xl:scroll-mt-28" },
       props.children
     );
 

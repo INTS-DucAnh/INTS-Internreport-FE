@@ -6,3 +6,46 @@
 ol, ul, menu  {
   list-style-type: revert;
 }
+
+.markdown-outline > a {
+  h1 {
+    margin: 0 0 5px 5px;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+  }
+  h2 {
+    margin: 0 0 0 20px;
+    font-size: 1.12rem;
+  }
+  h3 {
+    margin: 0 0 0 30px;
+    font-size: 0.98rem;
+    font-style:  italic;
+  }
+  h4 {
+    margin: 0 0 0 35px;
+    font-size: 0.93rem;
+    text-decoration: underline;
+  }
+  h5 {
+    margin: 0 0 0 38px;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+  h6 {
+    margin: 0 0 0 41px;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+  *{
+    transition-duration: .2s;
+    padding: 0 5px 0 0;
+  }
+  *::before {
+    content: "";
+  }
+  *:hover {
+    transform: translateX(5px);
+  }
+}

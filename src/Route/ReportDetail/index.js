@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Input, Button, Divider, Tooltip } from "@nextui-org/react";
 import { toast } from "react-hot-toast";
@@ -10,9 +10,10 @@ import { apiUrl } from "../../config";
 import ReportOutline from "../../Components/ReportOutline";
 
 export default function ReportDetail() {
-  const { rid } = useParams();
-  const [report, SetReport] = useState({});
   const navigate = useNavigate();
+  const { rid } = useParams();
+  const outlineRef = useRef(null);
+  const [report, SetReport] = useState({});
   const [loading, SetLoading] = useState(true);
   const [openOutline, SetOpenOutline] = useState(true);
   const [headingList, SetHeadingList] = useState([]);
@@ -48,6 +49,19 @@ export default function ReportDetail() {
   useEffect(() => {
     getReportId(rid);
   }, [rid]);
+
+  useEffect(() => {
+    const outlineClickOutsite = window.addEventListener(
+      "click",
+      (e) => {
+        if (outlineRef.current && !outlineRef.current.contains(e.target)) {
+          SetOpenOutline(false);
+        }
+      },
+      { capture: true }
+    );
+    return () => window.removeEventListener("click", outlineClickOutsite);
+  }, []);
 
   return (
     <div className="h-full w-full overflow-auto block relative py-5 2xl:py-32">
@@ -91,7 +105,11 @@ export default function ReportDetail() {
             </Button>
           </Tooltip>
         </div>
-        <ReportOutline isOpen={openOutline} data={headingList} />
+        <ReportOutline
+          forwardRef={outlineRef}
+          isOpen={openOutline}
+          data={headingList}
+        />
       </div>
       {loading ? (
         <ReportDetailLoading />
