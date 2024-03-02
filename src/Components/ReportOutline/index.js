@@ -4,9 +4,8 @@ export default function ReportOutline({ isOpen, data }) {
   const TagName = ({ element }) => {
     const Tag = element.tagName;
     return (
-      <a href={`#${element.id}`}>
+      <a href={`#${element.id}`} className="scroll-mt-32">
         <Tag
-          className="scroll-mt-32"
           style={{
             marginLeft: `${parseInt(element.tagName.slice(-1) - 1) * 10}px`,
           }}
