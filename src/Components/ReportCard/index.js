@@ -5,10 +5,11 @@ import FormModal from "../FormModal";
 import * as UilIcon from "@iconscout/react-unicons";
 import DeleteModal from "../DeleteModal";
 import DrawerReport from "../Drawer";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function ReportCard({ data, ...props }) {
   const [isOpen, SetIsOpen] = useState(false);
+  const viewRef = useRef(null);
   const navigate = useNavigate();
 
   const updateOpen = (value) => {
@@ -24,7 +25,9 @@ export default function ReportCard({ data, ...props }) {
   return (
     <div
       {...props}
-      onClick={OnClickView}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) OnClickView();
+      }}
       className="cursor-pointer basis-[80px] shrink-0 h-[80px] w-full flex flex-row justify-between items-center shadow-xl p-3 box-border bg-white bg-opacity-5 rounded-xl duration-100 hover:-translate-y-1  hover:bg-opacity-10 md:flex-col md:h-fit"
     >
       <DrawerReport data={data} isOpen={isOpen} updateOpen={updateOpen} />
@@ -72,6 +75,7 @@ export default function ReportCard({ data, ...props }) {
           onClick={OnClickRedirect}
           shouldFlip={true}
           isIconOnly
+          ref={viewRef}
         >
           <UilIcon.UilEye />
         </Button>
