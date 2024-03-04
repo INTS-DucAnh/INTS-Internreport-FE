@@ -64,7 +64,6 @@ export default function AllReportPage() {
               }}
             />
           </div>
-
           <Spacer y={5} />
           <Card className="flex-1 shrink-0 basis-10 w-full p-8 flex-col box-border 2xl:p-3">
             <CardBody className="flex flex-col 2xl:flex-rol flex-wrap-normal gap-3 flex-shrink-0 w-full h-full overflow-auto">

@@ -14,7 +14,7 @@ export default function ReportDetail() {
   const { rid } = useParams();
   const [report, SetReport] = useState({});
   const [loading, SetLoading] = useState(true);
-  const [openOutline, SetOpenOutline] = useState(true);
+  const [openOutline, SetOpenOutline] = useState(false);
   const [headingList, SetHeadingList] = useState([]);
   const color = "secondary";
   const variant = "faded";
