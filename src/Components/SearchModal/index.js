@@ -61,7 +61,7 @@ export default function SearchModel() {
 
   const searchData = () => {
     const body = Array.from(filter.entries()).reduce((prev, curr) => {
-      prev.push(`${curr[0]}=${form[curr[0]]}`);
+      prev.push(`${curr[0]}=${form[curr[0]] || ""}`);
       return prev;
     }, []);
     fetch(
@@ -78,7 +78,9 @@ export default function SearchModel() {
           SetList((list) =>
             current < res.max ? [...list, ...res.data] : res.data
           );
-        } else SetExpand(current === res.max);
+        } else {
+          SetExpand(current === res.max);
+        }
         !load && SetLoad(true);
         SetLoad(true);
       });
