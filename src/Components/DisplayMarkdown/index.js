@@ -32,7 +32,7 @@ export function DisplayMarkdown({
     return Element;
   }
   return (
-    <div className="flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body">
+    <div className="flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body text-white">
       <Markdown
         remarkPlugins={[[remarkGfm, remarkSlug]]}
         components={{
