@@ -9,7 +9,6 @@ import { useRef, useState } from "react";
 
 export default function ReportCard({ data, ...props }) {
   const [isOpen, SetIsOpen] = useState(false);
-  const viewRef = useRef(null);
   const navigate = useNavigate();
 
   const updateOpen = (value) => {
@@ -25,11 +24,14 @@ export default function ReportCard({ data, ...props }) {
   return (
     <div
       {...props}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) OnClickView();
-      }}
-      className="cursor-pointer basis-[80px] shrink-0 h-[80px] w-full flex flex-row justify-between items-center shadow-xl p-3 box-border bg-white bg-opacity-5 rounded-xl duration-100 hover:-translate-y-1  hover:bg-opacity-10 md:flex-col md:h-fit"
+      className="cursor-pointer basis-[80px] shrink-0 h-[80px] w-full flex flex-row justify-between items-center shadow-xl p-3 box-border bg-white bg-opacity-5 rounded-xl duration-100 hover:-translate-y-1 relative hover:bg-opacity-10 md:flex-col md:h-fit"
     >
+      <div
+        className="w-full h-full absolute left-0 top-0"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) OnClickView();
+        }}
+      />
       <DrawerReport data={data} isOpen={isOpen} updateOpen={updateOpen} />
       <div className="flex w-2/5 xl:flex-1 md:w-full h-full items-center">
         <EditDocumentIcon className="w-8 h-8 min-w-8 min-h-8" />
@@ -75,7 +77,6 @@ export default function ReportCard({ data, ...props }) {
           onClick={OnClickRedirect}
           shouldFlip={true}
           isIconOnly
-          ref={viewRef}
         >
           <UilIcon.UilEye />
         </Button>
