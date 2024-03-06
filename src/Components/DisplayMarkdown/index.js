@@ -1,14 +1,11 @@
 import Markdown from "react-markdown";
 import remarkSlug from "remark-slug";
 import remarkGfm from "remark-gfm";
-import { Children, createElement } from "react";
+import { Children, createElement, useContext } from "react";
+import { OSThemContext } from "../../Context/OSThemeContext";
 
-export function DisplayMarkdown({
-  md,
-  theme,
-  renderHeading = false,
-  addHeading,
-}) {
+export function DisplayMarkdown({ md, renderHeading = false, addHeading }) {
+  const { theme } = useContext(OSThemContext);
   function HeadingRenderer(props) {
     var children = Children.toArray(
       props.children.match(/[a-zA-Z0-9\u00C0-\u1EF9]+/g)
@@ -32,7 +29,11 @@ export function DisplayMarkdown({
     return Element;
   }
   return (
-    <div className="flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body">
+    <div
+      className={`flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body ${
+        theme === "dark" ? "text-white" : "text-black"
+      }`}
+    >
       <Markdown
         remarkPlugins={[[remarkGfm, remarkSlug]]}
         components={{
