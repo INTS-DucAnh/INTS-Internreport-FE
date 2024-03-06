@@ -8,7 +8,7 @@ export default function ReportOutline({ isOpen, data, ...props }) {
     return (
       <a
         href={`#${element.id}`}
-        className=" hover:text-purple-600 relative before:hidden hover:before:block before:absolute before:left-0 before:top-0 before:h-full before:bg-gradient-to-r before:from-[#281a34] before:to-transparent before:border-l-3 before:border-purple-400 before:to-[70%] before:w-full"
+        className="opacity-50 hover:opacity-100 relative before:hidden hover:before:block before:absolute before:left-0 before:top-0 before:h-full before:bg-gradient-to-r before:from-[#bb6dff75] before:to-transparent before:border-l-3 before:border-purple-200 before:to-[20%] before:w-full"
       >
         <Tag>{element.text}</Tag>
       </a>

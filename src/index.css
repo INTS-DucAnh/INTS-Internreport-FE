@@ -16,26 +16,26 @@ ol, ul, menu  {
   }
   h2 {
     margin: 0 0 0 20px;
-    font-size: 1.12rem;
+    font-size: 0.95rem;
   }
   h3 {
     margin: 0 0 0 30px;
-    font-size: 0.98rem;
+    font-size: 0.85rem;
     font-style:  italic;
   }
   h4 {
     margin: 0 0 0 35px;
-    font-size: 0.93rem;
+    font-size: 0.85rem;
     text-decoration: underline;
   }
   h5 {
     margin: 0 0 0 38px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-decoration: underline;
   }
   h6 {
     margin: 0 0 0 41px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-decoration: underline;
   }
   *{
