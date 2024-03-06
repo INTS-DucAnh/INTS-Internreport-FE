@@ -38,7 +38,7 @@ export const DrawerHeader = function ({ children }) {
 
 export const DrawerBody = function ({ children }) {
   return (
-    <div className="w-[60%] 2xl:w-[80%] xl:w-full mx-auto h-full">
+    <div className="w-[60%] 2xl:w-[80%] xl:w-full mx-auto h-full text-white">
       {children}
     </div>
   );
