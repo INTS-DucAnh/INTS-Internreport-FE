@@ -4,7 +4,12 @@ import remarkGfm from "remark-gfm";
 import { Children, createElement, useContext } from "react";
 import { OSThemContext } from "../../Context/OSThemeContext";
 
-export function DisplayMarkdown({ md, renderHeading = false, addHeading }) {
+export function DisplayMarkdown({
+  md,
+  renderHeading = false,
+  addHeading,
+  ...props
+}) {
   const { theme } = useContext(OSThemContext);
   function HeadingRenderer(props) {
     var children = Children.toArray(
