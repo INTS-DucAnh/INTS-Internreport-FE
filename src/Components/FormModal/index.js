@@ -18,8 +18,10 @@ import { FormContext } from "../../Context/FormContext";
 import { ListReportContext } from "../../Context/ListRepotrContext";
 import DisplayMardownModal from "../DisplayMardownModal";
 import { apiUrl } from "../../config";
+import { OSThemContext } from "../../Context/OSThemeContext";
 
 export default function FormModal({ type, form = {} }) {
+  const { theme } = useContext(OSThemContext);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { updateList, addToList } = useContext(ListReportContext);
   const { data, SetData } = useContext(FormContext);
@@ -109,13 +111,13 @@ export default function FormModal({ type, form = {} }) {
         size="lg"
         placement="top-center"
         backdrop="blur"
-        className="dark text-white"
+        className={`${theme} ${theme === "dark" ? "text-white" : "text-black"}`}
       >
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-xl">
-                {fetchOptions[type].title}
+                <p>{fetchOptions[type].title}</p>
               </ModalHeader>
               <Divider orientation="horizontal" />
               <ModalBody>

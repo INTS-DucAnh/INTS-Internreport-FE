@@ -6,17 +6,20 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
+import { OSThemeProvider } from "./Context/OSThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <NextUIProvider>
-        <React.Suspense fallback="loading">
-          <App />
-        </React.Suspense>
-      </NextUIProvider>
-    </BrowserRouter>
+    <OSThemeProvider>
+      <BrowserRouter>
+        <NextUIProvider>
+          <React.Suspense fallback="loading">
+            <App />
+          </React.Suspense>
+        </NextUIProvider>
+      </BrowserRouter>
+    </OSThemeProvider>
   </React.StrictMode>
 );
 

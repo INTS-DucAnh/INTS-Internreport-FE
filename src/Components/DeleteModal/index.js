@@ -16,8 +16,10 @@ import { toast } from "react-hot-toast";
 import DeleteForm from "../DeleteForm";
 import { ListReportContext } from "../../Context/ListRepotrContext";
 import { apiUrl } from "../../config";
+import { OSThemContext } from "../../Context/OSThemeContext";
 
 export default function DeleteModal({ _id }) {
+  const { theme } = useContext(OSThemContext);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [loading, SetLoading] = useState(false);
   const [secretKey, SetSecret] = useState();
@@ -68,6 +70,7 @@ export default function DeleteModal({ _id }) {
         size="lg"
         placement="top-center"
         backdrop="blur"
+        className={`${theme}`}
       >
         <ModalContent>
           {(onClose) => (

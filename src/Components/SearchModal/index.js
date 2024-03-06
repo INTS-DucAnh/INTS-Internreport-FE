@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -14,8 +14,10 @@ import { SearchIcon } from "../../Asset/searchIcon";
 import DropdownMutiple from "../Dropdown";
 import ReportCard from "../ReportCard";
 import { apiUrl } from "../../config";
+import { OSThemContext } from "../../Context/OSThemeContext";
 
 export default function SearchModel() {
+  const { theme } = useContext(OSThemContext);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [filter, SetFilter] = useState([]);
   const [form, SetForm] = useState({});
@@ -109,7 +111,7 @@ export default function SearchModel() {
         size="lg"
         placement="top-center"
         backdrop="blur"
-        className="dark text-white"
+        className={`${theme} ${theme === "dark" ? "text-white" : "text-black"}`}
       >
         <ModalContent className="min-w-[750px] xl:min-w-[60%] 2xl:min-w-[50%] md:min-w-[90%]">
           {(onClose) => (

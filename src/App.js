@@ -4,10 +4,15 @@ import DocLeft from "./Asset/left-gradient.png";
 import DocRight from "./Asset/right-gradient.png";
 import { Toaster } from "react-hot-toast";
 import { ListRepotrContextProvider } from "./Context/ListRepotrContext";
+import { useContext } from "react";
+import { OSThemContext } from "./Context/OSThemeContext";
 
 function App() {
+  const { theme } = useContext(OSThemContext);
   return (
-    <main className="dark text-foreground bg-background h-[100vh] w-[100vw] relative">
+    <main
+      className={`${theme} text-foreground bg-background h-[100vh] w-[100vw] relative`}
+    >
       <div className="w-full h-full overflow-hidden absolute z-0">
         <img
           src={DocLeft}

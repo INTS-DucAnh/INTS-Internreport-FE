@@ -12,8 +12,10 @@ import * as UilIcon from "@iconscout/react-unicons";
 import { useContext, useState } from "react";
 import { FormContext } from "../../Context/FormContext";
 import { DisplayMarkdown } from "../DisplayMarkdown";
+import { OSThemContext } from "../../Context/OSThemeContext";
 
 export default function DisplayMardownModal() {
+  const { theme } = useContext(OSThemContext);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data } = useContext(FormContext);
 
@@ -43,13 +45,13 @@ export default function DisplayMardownModal() {
         onOpenChange={onOpenChange}
         backdrop="opaque"
         placement="top-center"
-        className="dark text-white"
+        className={`${theme} ${theme === "dark" ? "text-white" : "text-black"}`}
       >
         <ModalContent className="min-w-[50%] xl:min-w-[80%] h-fit over">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-xl">
-                Xem trước Markdown
+                <p>Xem trước Markdown</p>
               </ModalHeader>
               <Divider orientation="horizontal" />
               <ModalBody>
