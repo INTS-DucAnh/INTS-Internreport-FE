@@ -35,9 +35,7 @@ export function DisplayMarkdown({
   }
   return (
     <div
-      className={`flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body ${
-        theme === "dark" ? "text-white" : "text-black"
-      }`}
+      className={`flex-1 shrink-1 h-fit w-full overflow-auto box-border px-10 py-10 markdown-body`}
     >
       <Markdown
         remarkPlugins={[[remarkGfm, remarkSlug]]}
